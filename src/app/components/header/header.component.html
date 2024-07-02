@@ -1,0 +1,10 @@
+<header>
+  <div class="button" [class.mobile-menu-opened]="isMobileMenuOpened">
+  </div>
+  <img src="../../../assets/images/logo.png" alt="logo" />
+  <div class="button" [class.mobile-menu-opened]="isMobileMenuOpened" (click)="openCloseMobileMenu()"></div>
+</header>
+<app-mobile-menu
+  *ngIf="isMobileMenuOpened"
+  [@openClose]="isMobileMenuOpened ? 'open' : 'closed'"
+></app-mobile-menu>
