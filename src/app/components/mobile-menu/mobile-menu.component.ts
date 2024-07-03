@@ -17,14 +17,10 @@ export class MobileMenuComponent implements AfterViewInit {
   constructor(private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
       this.renderer.addClass(this.option1.nativeElement, 'slide-up-1');
       this.renderer.addClass(this.option2.nativeElement, 'slide-up-2');
       this.renderer.addClass(this.option3.nativeElement, 'slide-up-3');
       this.renderer.addClass(this.option4.nativeElement, 'slide-up-4');
-      this.renderer.addClass(this.option5.nativeElement, 'slide-up-5');
-      this.renderer.addClass(this.option6.nativeElement, 'slide-up-6');
-      this.renderer.addClass(this.footer.nativeElement, 'slide-up-7');
-    }, 300)
+      this.renderer.addClass(this.footer.nativeElement, 'slide-up-footer');
   }
 }
