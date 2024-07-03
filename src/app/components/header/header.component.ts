@@ -27,5 +27,12 @@ export class HeaderComponent {
 
   openCloseMobileMenu = () => {
     this.isMobileMenuOpened = !this.isMobileMenuOpened;
+    const body = document.getElementsByTagName('body');
+    if (this.isMobileMenuOpened) {
+      body[0].style.overflow = 'hidden';
+    }
+    else {
+      body[0].style.overflow = 'auto'
+    }
   }
 }
