@@ -7,6 +7,7 @@ import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeScreenComponent } from './components/welcome-screen/welcome-screen.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { MaterialsComponent } from './components/materials/materials.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     MobileMenuComponent,
     WelcomeScreenComponent,
     AboutUsComponent,
+    MaterialsComponent,
   ],
   imports: [
     BrowserModule,
