@@ -5,22 +5,13 @@ import { Component } from '@angular/core';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  animations: [
-    trigger('openClose', [
-      state(
-        'open',
-        style({
-        })
-      ),
-      transition('void => open', [
-        style({
-          opacity: 0
-        }),
-        animate(300, style({ opacity: 1}))
-      ]),
-      transition('open => void', [animate(300, style({opacity: 0}))])
-    ]),
-  ],
+  // animations: [
+  //   trigger('openClose', [
+  //     state('open', style({ opacity: 1 })),
+  //     state('void', style({ opacity: 0 })),
+  //     transition('void <=> open', animate('300ms ease')),
+  //   ]),
+  // ],
 })
 export class HeaderComponent {
   isMobileMenuOpened: boolean = false;
@@ -29,10 +20,10 @@ export class HeaderComponent {
     this.isMobileMenuOpened = !this.isMobileMenuOpened;
     const body = document.getElementsByTagName('body');
     if (this.isMobileMenuOpened) {
-      body[0].style.overflow = 'hidden';
+      body[0].style.overflowY = 'hidden';
     }
     else {
-      body[0].style.overflow = 'auto'
+      body[0].style.overflowY = 'auto'
     }
   }
 }

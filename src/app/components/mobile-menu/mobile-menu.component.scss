@@ -4,6 +4,7 @@
     background-color: #1b1b1b;
     touch-action: none;
     user-select: none;
+    z-index: 2;
 
     ul {
         padding: 150px 40px 0 40px;
@@ -18,7 +19,7 @@
 
                 li {
                     color: white;
-                    font-size: 5vh;
+                    font-size: 4vh;
                     padding: 3vh 0;
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 500;
