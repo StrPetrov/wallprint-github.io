@@ -4,6 +4,8 @@ import {
   ViewChild,
   Renderer2,
   AfterViewInit,
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 
 @Component({
@@ -11,14 +13,14 @@ import {
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
 })
-export class MobileMenuComponent implements AfterViewInit {
+export class MobileMenuComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild('option1') option1!: ElementRef;
   @ViewChild('option2') option2!: ElementRef;
   @ViewChild('option3') option3!: ElementRef;
   @ViewChild('option4') option4!: ElementRef;
   @ViewChild('footer') footer!: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private elRef: ElementRef) {}
 
   ngAfterViewInit(): void {
     this.renderer.addClass(this.option1.nativeElement, 'slide-up-1');
@@ -27,4 +29,52 @@ export class MobileMenuComponent implements AfterViewInit {
     this.renderer.addClass(this.option4.nativeElement, 'slide-up-4');
     this.renderer.addClass(this.footer.nativeElement, 'slide-up-footer');
   }
+
+  ngOnInit() {
+    this.disableTouchActions();
+  }
+
+  ngOnDestroy() {
+    this.enableTouchActions();
+  }
+
+  private disableTouchActions = () => {
+    const overlayElement = this.elRef.nativeElement;
+
+    overlayElement.addEventListener('touchstart', this.preventMultiTouch, { passive: false });
+    overlayElement.addEventListener('gesturestart', this.preventGesture, { passive: false });
+    overlayElement.addEventListener('gesturechange', this.preventGesture, { passive: false });
+    overlayElement.addEventListener('gestureend', this.preventGesture, { passive: false });
+    overlayElement.addEventListener('touchend', this.preventDoubleTapZoom, { passive: false });
+  }
+
+  private enableTouchActions = () => {
+    const overlayElement = this.elRef.nativeElement;
+
+    overlayElement.removeEventListener('touchstart', this.preventMultiTouch);
+    overlayElement.removeEventListener('gesturestart', this.preventGesture);
+    overlayElement.removeEventListener('gesturechange', this.preventGesture);
+    overlayElement.removeEventListener('gestureend', this.preventGesture);
+    overlayElement.removeEventListener('touchend', this.preventDoubleTapZoom);
+  }
+
+  private preventMultiTouch = (event: TouchEvent) => {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  }
+
+  private preventGesture = (event: Event) => {
+    event.preventDefault();
+  }
+
+  private lastTouchEnd = 0;
+
+  private preventDoubleTapZoom = (event: TouchEvent) => {
+    const now = (new Date()).getTime();
+    if (now - this.lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    this.lastTouchEnd = now;
+  };
 }
