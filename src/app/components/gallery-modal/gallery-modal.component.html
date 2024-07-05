@@ -1,0 +1,11 @@
+<div class="gallery-modal" (click)="closeModal($event)">
+    <div class="gallery">
+        <div class="gallery-image" #galleryImage>
+            <swiper-container appSwiper [config]="swiperConfig">
+                <swiper-slide *ngFor="let path of imagePaths; let i = index">
+                    <img [src]="path" alt="gallery-image{{i}}">
+                </swiper-slide>
+              </swiper-container>
+        </div>
+    </div>
+</div>

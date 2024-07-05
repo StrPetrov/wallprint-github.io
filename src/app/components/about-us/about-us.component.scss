@@ -35,8 +35,9 @@
         position: absolute;
         height: 215px;
         width: 139px;
-        top: -85px;
+        top: 0;
         left: 40px;
+        transition: top 1000ms;
     }
 }
 

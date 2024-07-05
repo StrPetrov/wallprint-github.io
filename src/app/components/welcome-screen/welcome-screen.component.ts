@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome-screen.component.scss']
 })
 export class WelcomeScreenComponent {
+
+  constructor(private sharedService: SharedService) {}
+
+  scrollDown = () => {
+    this.sharedService.scrolledDownSubject.next();
+  }
 
 }

@@ -1,0 +1,38 @@
+<div class="gallery-container">
+  <p>Galerie</p>
+  <div class="line"></div>
+  <div class="aside">
+    <ul>
+      <li>Partner</li>
+      <li *ngFor="let partner of partnersToDisplay">
+        {{ partner }}
+      </li>
+    </ul>
+  </div>
+  <img
+    class="first-gallery-image"
+    src="assets/images/gallery1.png"
+    alt="gallery1"
+  />
+  <button class="gallery-button" (click)="openGalleryModal()">
+    Galerie öffnen
+  </button>
+  <img
+    #second
+    class="second-gallery-image"
+    src="assets/images/gallery2.png"
+    alt="gallery2"
+  />
+  <img
+    #third
+    class="third-gallery-image"
+    src="assets/images/gallery3.png"
+    alt="gallery3"
+  />
+  <img
+    class="forth-gallery-image"
+    src="assets/images/gallery4.png"
+    alt="gallery4"
+  />
+</div>
+<app-gallery-modal *ngIf="isGalleryModalOpened" (closedModal)="closeGalleryModal()"></app-gallery-modal>

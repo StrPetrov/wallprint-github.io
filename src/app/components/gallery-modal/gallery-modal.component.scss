@@ -1,0 +1,31 @@
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.85);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .gallery {
+    width: 100%;
+    height: 400px;
+
+    .gallery-image{
+      position: relative;
+      z-index: 11;
+      width: 95%;
+      height: 400px;
+      margin: auto;
+      overflow: hidden;
+    
+      img {
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
+      }
+    }
+  }
+}
