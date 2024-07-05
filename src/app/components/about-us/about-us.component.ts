@@ -31,7 +31,7 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
       },
       {
         root: null,
-        threshold: 0.8
+        threshold: 0.3
       }
     );
 

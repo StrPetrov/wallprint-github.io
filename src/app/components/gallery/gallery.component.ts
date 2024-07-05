@@ -45,9 +45,6 @@ export class GalleryComponent implements AfterViewInit, OnInit {
           if (entry.isIntersecting) {
             this.renderer.setStyle(elementRef.nativeElement, 'scale', scaleUp)
           }
-          else {
-            this.renderer.setStyle(elementRef.nativeElement, 'scale', scaleDown)
-          }
         });
       },
       {
