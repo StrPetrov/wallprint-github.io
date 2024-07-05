@@ -1,0 +1,32 @@
+<h2>Wir bauen Ihre Zukunft</h2>
+<div class="compare-container">
+  <img src="assets/images/before.png" alt="before" />
+  <img #after1 class="after" src="assets/images/after.png" alt="after" />
+  <div #dragLine1 class="drag-line"></div>
+  <input
+    (input)="compareImages($event, after1, dragLine1)"
+    class="slider"
+    type="range"
+    min="0"
+    max="100"
+    value="50"
+  />
+</div>
+<p class="about-us-text">
+  Erleben Sie eine Designrevolution mit innovativer Wanddrucktechnologie! Von
+  gewöhnlichen Wänden zu einzigartigen Kunstwerken. Entdecken Sie die kreative
+  Transformation Ihres Raumes mit uns!
+</p>
+<div class="compare-container">
+    <img src="assets/images/before.png" alt="before" />
+    <img #after2 class="after" src="assets/images/after.png" alt="after" />
+    <div #dragLine2 class="drag-line"></div>
+    <input
+      (input)="compareImages($event, after2, dragLine2)"
+      class="slider"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    />
+  </div>

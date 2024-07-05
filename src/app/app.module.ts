@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeScreenComponent } from './components/welcome-screen/welcome-screen.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { MaterialsComponent } from './components/materials/materials.component';
+import { BeforeAfterComponent } from './components/before-after/before-after.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MaterialsComponent } from './components/materials/materials.component';
     WelcomeScreenComponent,
     AboutUsComponent,
     MaterialsComponent,
+    BeforeAfterComponent,
   ],
   imports: [
     BrowserModule,
