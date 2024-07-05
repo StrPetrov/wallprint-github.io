@@ -9,13 +9,13 @@ export class BeforeAfterComponent {
 
   constructor(private renderer: Renderer2) {}
 
-  compareImages = (event: Event, after: HTMLElement, dragLine: HTMLElement) => {
+  compareImages = (event: Event, before: HTMLElement, dragLine: HTMLElement) => {
     let inputElement = event.target as HTMLInputElement;
     let inputValue = inputElement.value;
 
     this.renderer.setStyle(dragLine, 'left', `${inputValue}%`)
 
-    this.renderer.setStyle(after,
+    this.renderer.setStyle(before,
       'clipPath',
       `polygon(0 0, ${inputValue}% 0, ${inputValue}% 100%, 0 100%)`)
   }

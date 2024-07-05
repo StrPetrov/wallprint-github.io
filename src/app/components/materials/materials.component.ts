@@ -33,6 +33,9 @@ export class MaterialsComponent implements AfterViewInit {
           if (entry.isIntersecting) {
             this.selectGlass();
           }
+          else {
+            this.resetState();
+          }
         });
       },
       {
@@ -42,6 +45,15 @@ export class MaterialsComponent implements AfterViewInit {
     );
 
     observer.observe(this.elRef.nativeElement);
+  }
+
+  resetState = () => {
+    this.renderer.setStyle(this.brick.nativeElement, 'width', '16.6%')
+    this.renderer.setStyle(this.wood.nativeElement, 'width', '16.6%')
+    this.renderer.setStyle(this.textureWall.nativeElement, 'width', '16.6%')
+    this.renderer.setStyle(this.metal.nativeElement, 'width', '16.6%')
+    this.renderer.setStyle(this.glass.nativeElement, 'width', '16.6%')
+    this.renderer.setStyle(this.concrete.nativeElement, 'width', '16.6%')
   }
 
   selectBrick = () => {

@@ -31,7 +31,7 @@ h2 {
         background: white;
     }
 
-    .after {
+    .before {
         clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
     }
 
@@ -51,7 +51,6 @@ h2 {
             width: 40px;
             border: 3px solid white;
             border-radius: 50%;
-            background: url("/assets/images/slider.svg") no-repeat;
             background-size: contain;
             position: relative;
             z-index: 1;
@@ -66,5 +65,6 @@ h2 {
     padding: 80px 40px 80px 40px;
     text-align: center;
     color: #2f2e2e;
+    background-color: #f8f8f8;
 }
 
