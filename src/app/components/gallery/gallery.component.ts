@@ -5,39 +5,20 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fr
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements AfterViewInit, OnInit {
+export class GalleryComponent implements AfterViewInit {
 
-  @ViewChild('second') secondImage!: ElementRef
-  @ViewChild('third') thirdImage!: ElementRef
   @ViewChild('galleryButton') galleryButton!: ElementRef
+  @ViewChild('firstGalleryImage') firstImage!: ElementRef
+  @ViewChild('secondGalleryImage') secondImage!: ElementRef
 
-  partners = ['logo', 'render', 'skype', 'music', 'iphone', 'adidas', 'nike', 'rosa', 'logitech', 'frikom', 'ikea', 'lidl']
-  partnersToDisplay: string[] = [];
-  currentIndex = 0;
   isGalleryModalOpened = false;
   galleryButtonInterval: any;
 
   constructor(private renderer: Renderer2) {}
 
-  ngOnInit(): void {
-    this.updatePartnersToDisplay()
-
-    setInterval(() => {
-      this.updatePartnersToDisplay();
-    }, 8000)
-  }
-
-  updatePartnersToDisplay(): void {
-    this.partnersToDisplay = [];
-    for (let i = 0; i < 4; i++) {
-      this.partnersToDisplay.push(this.partners[(this.currentIndex + i) % this.partners.length]);
-    }
-    this.currentIndex = (this.currentIndex + 4) % this.partners.length;
-  }
-
   ngAfterViewInit(): void {
-    this.intersectionObserver(this.secondImage, 0.4, '0.85', '0.6');
-    this.intersectionObserver(this.thirdImage, 0.7, '0.9', '0.5' );
+    this.intersectionObserver(this.firstImage, 'slide-left');
+    this.intersectionObserver(this.secondImage, 'slide-right' );
 
     this.galleryButtonInterval = setInterval(() => {
       this.renderer.addClass(this.galleryButton.nativeElement, 'shake');
@@ -48,18 +29,18 @@ export class GalleryComponent implements AfterViewInit, OnInit {
     }, 2700)
   }
 
-  intersectionObserver = (elementRef: ElementRef, threshold: number, scaleUp: string, scaleDown: string) => {
+  intersectionObserver = (elementRef: ElementRef, className: string) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            this.renderer.setStyle(elementRef.nativeElement, 'scale', scaleUp)
+            this.renderer.addClass(elementRef.nativeElement, className)
           }
         });
       },
       {
         root: null,
-        threshold: threshold
+        threshold: 0
       }
     );
 
