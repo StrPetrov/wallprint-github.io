@@ -13,6 +13,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { GalleryModalComponent } from './components/gallery-modal/gallery-modal.component';
 import { register } from 'swiper/element/bundle';
 import { SwiperDirective } from './directives/swiper.directive';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { PriceTagComponent } from './components/price-tag/price-tag.component';
 
 register();
 
@@ -28,6 +30,8 @@ register();
     GalleryComponent,
     GalleryModalComponent,
     SwiperDirective,
+    PricingComponent,
+    PriceTagComponent,
   ],
   imports: [
     BrowserModule,

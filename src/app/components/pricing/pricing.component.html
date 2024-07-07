@@ -1,0 +1,31 @@
+<div class="pricing-container">
+  <div #pricingTextWrapper class="hidden">
+    <p #pricingText class="pricing-intro-text">
+        Die neue Maschine zum Drucken von Bildern an der Wand ist ein hochmodernes
+        Gerät, das das Drucken von hochwertigen Bildern, Wandgemälden und Designs
+        direkt auf vertikale Oberflächen wie Wände ermöglicht.
+      </p>
+  </div>
+  <div class="pricing">
+    <h2>Price</h2>
+    <p>Preise je nach bedruckter Fläche</p>
+    <app-price-tag
+      [priceName]="'Klein'"
+      [priceValue]="'100'"
+      [printingSurficeFrom]="'0'"
+      [printingSurficeTo]="'0.5'"
+    ></app-price-tag>
+    <app-price-tag
+      [priceName]="'Mittel'"
+      [priceValue]="'200'"
+      [printingSurficeFrom]="'0.5'"
+      [printingSurficeTo]="'1.5'"
+    ></app-price-tag>
+    <app-price-tag
+      [priceName]="'Groß'"
+      [priceValue]="'300'"
+      [printingSurficeFrom]="'1.5'"
+      [printingSurficeTo]="'2.5'"
+    ></app-price-tag>
+  </div>
+</div>

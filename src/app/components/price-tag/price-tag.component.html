@@ -1,0 +1,18 @@
+<div class="price-tag">
+    <p class="price-name">{{ priceName }}</p>
+    <div class="line" [ngClass]="{ 'yellow': priceName === 'Klein', 'blue': priceName === 'Mittel', 'purple': priceName === 'Groß' }"></div>
+    <p class="price-value">{{ priceValue }}$/m<sup>2</sup></p>
+    <ul>
+        <li>
+            <img src="assets/images/tick.svg" alt="tick">
+            <p>Druckbereich von {{ printingSurficeFrom}} bis {{ printingSurficeTo}} m²</p>
+        </li>
+        <li>
+            <img src="assets/images/tick.svg" alt="tick">
+            <p>Druckbereich von {{ printingSurficeFrom}} bis {{ printingSurficeTo}} m²</p>
+        </li>
+    </ul>
+    <p class="price-footer-text">
+        Sie erhalten einen ziemlich günstigen Preis für diesen Druckbereich.
+    </p>
+</div>
