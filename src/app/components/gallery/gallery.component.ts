@@ -9,11 +9,13 @@ export class GalleryComponent implements AfterViewInit, OnInit {
 
   @ViewChild('second') secondImage!: ElementRef
   @ViewChild('third') thirdImage!: ElementRef
+  @ViewChild('galleryButton') galleryButton!: ElementRef
 
   partners = ['logo', 'render', 'skype', 'music', 'iphone', 'adidas', 'nike', 'rosa', 'logitech', 'frikom', 'ikea', 'lidl']
   partnersToDisplay: string[] = [];
   currentIndex = 0;
   isGalleryModalOpened = false;
+  galleryButtonInterval: any;
 
   constructor(private renderer: Renderer2) {}
 
@@ -36,6 +38,14 @@ export class GalleryComponent implements AfterViewInit, OnInit {
   ngAfterViewInit(): void {
     this.intersectionObserver(this.secondImage, 0.4, '0.85', '0.6');
     this.intersectionObserver(this.thirdImage, 0.7, '0.9', '0.5' );
+
+    this.galleryButtonInterval = setInterval(() => {
+      this.renderer.addClass(this.galleryButton.nativeElement, 'shake');
+
+      setTimeout(() => {
+        this.renderer.removeClass(this.galleryButton.nativeElement, 'shake');
+      }, 700)
+    }, 2700)
   }
 
   intersectionObserver = (elementRef: ElementRef, threshold: number, scaleUp: string, scaleDown: string) => {
@@ -58,6 +68,9 @@ export class GalleryComponent implements AfterViewInit, OnInit {
 
   openGalleryModal = () => {
     this.isGalleryModalOpened = true;
+    clearInterval(this.galleryButtonInterval);
+    this.renderer.removeClass(this.galleryButton.nativeElement, 'shake');
+
     const body = document.getElementsByTagName('body');
     const html = document.getElementsByTagName('html');
     body[0].style.overflowY = 'hidden';
