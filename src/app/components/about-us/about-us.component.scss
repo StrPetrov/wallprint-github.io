@@ -1,120 +1,134 @@
 .about-us {
-    padding: 80px 40px 120px 40px;
-    background-color: #f8f8f8;
+  padding: 80px 40px 120px 40px;
+  background-color: #f8f8f8;
+
+  .hidden {
+    overflow: hidden;
 
     h2 {
-        text-align: center;
-        font-size: 36px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        color: #A06969;
+      text-align: center;
+      font-size: 36px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
+      color: #a06969;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: 0.5s;
     }
 
     p {
-        text-align: center;
-        padding: 50px 0 0 0;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 20px;
-        color: #2f2e2e;
-        line-height: 30px;
+      text-align: center;
+      padding: 50px 0 0 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 20px;
+      color: #2f2e2e;
+      line-height: 30px;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: 1s;
     }
+
+    .animate {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+  }
 }
 
 .images-container {
-    padding: 0 20px 80px 20px;
-    position: relative;
-    background-color: #f8f8f8;
-    
+  padding: 0 20px 80px 20px;
+  position: relative;
+  background-color: #f8f8f8;
 
-    .non-positioned-image {
-        width: 100%;
-        height: 100%;
-    }
+  .non-positioned-image {
+    width: 100%;
+    height: 100%;
+  }
 
-    .positioned-image {
-        position: absolute;
-        height: 215px;
-        width: 139px;
-        top: 0;
-        left: 40px;
-        transition: top 1000ms;
-    }
+  .positioned-image {
+    position: absolute;
+    height: 215px;
+    width: 139px;
+    top: 0;
+    left: 40px;
+    transition: top 1000ms;
+  }
 }
 
 .icons-container {
-    padding: 0 20px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+
+  .row {
     display: flex;
-    flex-direction: column;
-    background-color: #f8f8f8;
+    justify-content: space-between;
 
-    .row {
-        display: flex;
-        justify-content: space-between;
+    .icon-container {
+      position: relative;
 
-        .icon-container {
-            position: relative;
+      span {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+      }
 
-            span {
-                font-family: 'Montserrat', sans-serif;
-                font-size: 14px;
-            }
+      .icon-wide-desc {
+        position: absolute;
+        bottom: -30px;
+        left: -20px;
+      }
 
-            .icon-wide-desc {
-                position: absolute;
-                bottom: -30px;
-                left: -20px;
-            }
+      .icon-certificate-desc {
+        position: absolute;
+        bottom: -45px;
+        left: -21px;
+        text-align: center;
+      }
 
-            .icon-certificate-desc {
-                position: absolute;
-                bottom: -45px;
-                left: -21px;
-                text-align: center;
-            }
+      .icon-lock-desc {
+        position: absolute;
+        bottom: -30px;
+        left: -34px;
+      }
 
-            .icon-lock-desc {
-                position: absolute;
-                bottom: -30px;
-                left: -34px;
-            }
+      .icon-heart-desc {
+        position: absolute;
+        bottom: -30px;
+        left: -15px;
+      }
 
-            .icon-heart-desc {
-                position: absolute;
-                bottom: -30px;
-                left: -15px;
-            }
-
-            .icon-sun-desc {
-                position: absolute;
-                bottom: -30px;
-                left: -39px;
-            }
-        }
+      .icon-sun-desc {
+        position: absolute;
+        bottom: -30px;
+        left: -39px;
+      }
     }
+  }
 
-    .row-1 {
-        padding: 0 40px;
-    }
+  .row-1 {
+    padding: 0 40px;
+  }
 
-    .row-2 {
-        padding: 70px 80px 120px 80px;
-    }
+  .row-2 {
+    padding: 70px 80px 120px 80px;
+  }
 }
 
 .contact-button {
-    padding: 0 70px 70px 70px;
-    background-color: #f8f8f8;
+  padding: 0 70px 70px 70px;
+  background-color: #f8f8f8;
 
-    button {
-        width: 100%;
-        padding: 20px;
-        border-radius: 999px;
-        outline: none;
-        border: none;
-        background-color: rgba($color: #c29a9a, $alpha: 0.8);
-        color: rgba($color: #4b4b4b, $alpha: 0.8);
-        font-size: 20px;
-        font-family: 'Montserrat', sans-serif;
-        box-shadow: 0px 10px 10px rgba($color: #000000, $alpha: 0.35);
-    }
+  button {
+    width: 100%;
+    padding: 20px;
+    border-radius: 999px;
+    outline: none;
+    border: none;
+    background-color: rgba($color: #c29a9a, $alpha: 0.8);
+    color: rgba($color: #4b4b4b, $alpha: 0.8);
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 10px 10px rgba($color: #000000, $alpha: 0.35);
+  }
 }

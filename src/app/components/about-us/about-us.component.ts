@@ -11,6 +11,8 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('aboutUs') aboutUs!: ElementRef
   @ViewChild('animate') imgToAnimate!: ElementRef
+  @ViewChild('h2') h2!: ElementRef
+  @ViewChild('p') p!: ElementRef
 
   constructor(private sharedService: SharedService, private renderer: Renderer2) {}
 
@@ -21,21 +23,39 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
       this.aboutUs.nativeElement.scrollIntoView({behaviour: 'smooth', block: 'start' })
     })
 
-    const observer = new IntersectionObserver(
+    // const imageObserver = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach(entry => {
+    //       if (entry.isIntersecting) {
+    //         this.renderer.setStyle(this.imgToAnimate.nativeElement, 'top', '-85px')
+    //       }
+    //     });
+    //   },
+    //   {
+    //     root: null,
+    //     threshold: 0.3
+    //   }
+    // );
+
+    // imageObserver.observe(this.imgToAnimate.nativeElement);
+
+
+    const textObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            this.renderer.setStyle(this.imgToAnimate.nativeElement, 'top', '-85px')
+            this.renderer.addClass(this.h2.nativeElement, 'animate')
+            this.renderer.addClass(this.p.nativeElement, 'animate')
           }
         });
       },
       {
         root: null,
-        threshold: 0.3
+        threshold: 0.4
       }
     );
 
-    observer.observe(this.imgToAnimate.nativeElement);
+    textObserver.observe(this.aboutUs.nativeElement)
   }
 
   ngOnDestroy(): void {
