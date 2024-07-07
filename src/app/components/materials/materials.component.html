@@ -1,4 +1,4 @@
-<h2>Wir bearbeiten alle Arten von Materialien</h2>
+<!-- <h2>Wir bearbeiten alle Arten von Materialien</h2>
 <div class="material-container">
     <div class="material-image-container" (click)="selectBrick()" #brick>
         <img class="material-brick" src="assets/images/brick.png" alt="brick">
@@ -23,5 +23,32 @@
     <div class="material-image-container" (click)="selectConcrete()" #concrete>
         <img class="material-concrete" src="assets/images/concrete.png" alt="concrete">
         <span [@showHide]="materialSelected === 'concrete' ? 'open': 'void'" *ngIf="materialSelected === 'concrete'">Beton</span>
+    </div>
+</div> -->
+<h2>Wir bearbeiten alle Arten von Materialien</h2>
+<div class="material-container">
+    <div class="material-image-container" (click)="selectBrick()" #brick>
+        <img class="material-brick" src="assets/images/brick.png" alt="brick">
+        <span [@showHide]="materialSelected === 'brick' ? 'open': 'void'" *ngIf="materialSelected === 'brick'"></span>
+    </div>
+    <div class="material-image-container" (click)="selectWood()" #wood>
+        <img class="material-wood" src="assets/images/wood.png" alt="wood">
+        <span [@showHide]="materialSelected === 'wood' ? 'open': 'void'" *ngIf="materialSelected === 'wood'"></span>
+    </div>
+    <div class="material-image-container" (click)="selectTextureWall()" #textureWall>
+        <img class="material-texture-wall" src="assets/images/texture-wall.png" alt="texture-wall">
+        <span [@showHide]="materialSelected === 'textureWall' ? 'open': 'void'" *ngIf="materialSelected === 'textureWall'"></span>
+    </div>
+    <div class="material-image-container" (click)="selectGlass()" #glass>
+        <img class="material-glass" src="assets/images/glass.png" alt="glass">
+        <span [@showHide]="materialSelected === 'glass' ? 'open': 'void'" *ngIf="materialSelected === 'glass'"></span>
+    </div>
+    <div class="material-image-container" (click)="selectMetal()" #metal>
+        <img class="material-metal" src="assets/images/metal.png" alt="metal">
+        <span [@showHide]="materialSelected === 'metal' ? 'open': 'void'" *ngIf="materialSelected === 'metal'"></span>
+    </div>
+    <div class="material-image-container" (click)="selectConcrete()" #concrete>
+        <img class="material-concrete" src="assets/images/concrete.png" alt="concrete">
+        <span [@showHide]="materialSelected === 'concrete' ? 'open': 'void'" *ngIf="materialSelected === 'concrete'"></span>
     </div>
 </div>

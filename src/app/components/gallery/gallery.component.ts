@@ -10,6 +10,10 @@ export class GalleryComponent implements AfterViewInit {
   @ViewChild('galleryButton') galleryButton!: ElementRef
   @ViewChild('firstGalleryImage') firstImage!: ElementRef
   @ViewChild('secondGalleryImage') secondImage!: ElementRef
+  @ViewChild('thirdGalleryImage') thirdImage!: ElementRef
+  @ViewChild('forthGalleryImage') forthImage!: ElementRef
+  @ViewChild('fifthGalleryImage') fifthImage!: ElementRef
+  @ViewChild('sixthGalleryImage') sixthImage!: ElementRef
 
   isGalleryModalOpened = false;
   galleryButtonInterval: any;
@@ -18,7 +22,11 @@ export class GalleryComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.intersectionObserver(this.firstImage, 'slide-left');
-    this.intersectionObserver(this.secondImage, 'slide-right' );
+    this.intersectionObserver(this.secondImage, 'slide-right');
+    this.intersectionObserver(this.thirdImage, 'slide-left');
+    this.intersectionObserver(this.forthImage, 'slide-right');
+    this.intersectionObserver(this.fifthImage, 'slide-left');
+    this.intersectionObserver(this.sixthImage, 'slide-right');
 
     this.galleryButtonInterval = setInterval(() => {
       this.renderer.addClass(this.galleryButton.nativeElement, 'shake');
