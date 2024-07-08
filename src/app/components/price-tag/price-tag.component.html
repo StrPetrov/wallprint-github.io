@@ -1,4 +1,4 @@
-<div class="price-tag">
+<div #priceTag class="price-tag" (click)="triggerAnimation()">
     <p class="price-name">{{ priceName }}</p>
     <div class="line" [ngClass]="{ 'yellow': priceName === 'Klein', 'blue': priceName === 'Mittel', 'purple': priceName === 'Groß' }"></div>
     <p class="price-value">{{ priceValue }}$/m<sup>2</sup></p>
@@ -15,4 +15,5 @@
     <p class="price-footer-text">
         Sie erhalten einen ziemlich günstigen Preis für diesen Druckbereich.
     </p>
+    <div #overlayAnimation class="overlay-animation"></div>
 </div>

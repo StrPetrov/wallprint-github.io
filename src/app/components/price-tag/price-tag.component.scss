@@ -4,18 +4,25 @@
     background-color: #f3f3f3;
     box-shadow: 0 0 20px 10px white;
     margin: 70px auto;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 100ms linear, scale 100ms linear;
 
     .price-name {
         text-align: center;
         padding: 20px 0 0 0;
         font-family: 'Montserrat', sans-serif;
         font-size: 20px;
+        position: relative;
+        z-index: 2;
     }
 
     .line {
         width: 40%;
         height: 2px;
         margin: auto;
+        position: relative;
+        z-index: 2;
     }
 
     .yellow {
@@ -35,11 +42,15 @@
         text-align: center;
         font-family: 'Quicksand', sans-serif;
         font-size: 32px;
+        position: relative;
+        z-index: 2;
     }
 
     ul {
         list-style-type: none;
         padding: 20px 10px 0 20px;
+        position: relative;
+        z-index: 2;
 
         li {
             display: flex;
@@ -68,5 +79,29 @@
         font-family: 'Montserrat', sans-serif;
         color: #3d3d3d;
         font-size: 13px;
+        position: relative;
+        z-index: 2;
     }
+
+    .overlay-animation {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 150%;
+        height: 150%;
+        background: rgba($color: #dddddd, $alpha: 0.4);
+        transition: transform 100ms linear;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .animate-background {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.animate-price-tag {
+    box-shadow: 0 0 20px 20px white;
+    scale: 1.1;
 }
