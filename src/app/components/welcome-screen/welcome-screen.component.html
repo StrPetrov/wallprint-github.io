@@ -1,6 +1,6 @@
 <div class="welcome-screen">
-  <div class="video-placeholder"></div>
-  <video
+  <div class="video-placeholder">
+    <video
     src="assets/images/welcome.mp4"
     [autoplay]="true"
     [muted]="true"
@@ -8,6 +8,7 @@
     [playsInline]="true"
     [disablePictureInPicture]="true"
   ></video>
+  </div>
   <p class="welcome-screen-text">Wände der nächsten Ebene</p>
   <div (click)="scrollDown()" class="scroll-down"></div>
   <div class="marquee">

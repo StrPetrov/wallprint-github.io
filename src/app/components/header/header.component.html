@@ -33,6 +33,7 @@
 </header>
 <app-mobile-menu
   *ngIf="isMobileMenuOpened"
+  (closedMobileMenu)="closeMobileMenu()"
 ></app-mobile-menu>
 
 <!-- [@openClose]="isMobileMenuOpened ? 'open' : 'closed'" -->

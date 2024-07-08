@@ -6,7 +6,8 @@ import { Subject } from 'rxjs';
 })
 export class SharedService {
 
-  scrolledDownSubject = new Subject<void>();
+  scrolledDownAboutUsSubject = new Subject<void>();
+  scrolledDownGallerySubject = new Subject<void>();
 
   constructor() { }
 

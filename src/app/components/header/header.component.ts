@@ -29,4 +29,12 @@ export class HeaderComponent {
       html[0].style.overflowY = 'auto';
     }
   }
+
+  closeMobileMenu = () => {
+    this.isMobileMenuOpened = false;
+    const body = document.getElementsByTagName('body');
+    const html = document.getElementsByTagName('html');
+    body[0].style.overflowY = 'auto'
+    html[0].style.overflowY = 'auto';
+  }
 }

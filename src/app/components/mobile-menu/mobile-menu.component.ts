@@ -6,7 +6,10 @@ import {
   AfterViewInit,
   OnDestroy,
   OnInit,
+  EventEmitter,
+  Output,
 } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -19,8 +22,10 @@ export class MobileMenuComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild('option3') option3!: ElementRef;
   @ViewChild('option4') option4!: ElementRef;
   @ViewChild('footer') footer!: ElementRef;
+  
+  @Output('closedMobileMenu') closedMobileMenu = new EventEmitter<void>()
 
-  constructor(private renderer: Renderer2, private elRef: ElementRef) {}
+  constructor(private renderer: Renderer2, private elRef: ElementRef, private sharedService: SharedService) {}
 
   ngAfterViewInit(): void {
     this.renderer.addClass(this.option1.nativeElement, 'slide-up-1');
@@ -77,4 +82,18 @@ export class MobileMenuComponent implements AfterViewInit, OnDestroy, OnInit {
     }
     this.lastTouchEnd = now;
   };
+
+  scrollToAboutUs = () => {
+    this.closedMobileMenu.emit();
+    setTimeout(() => {
+      this.sharedService.scrolledDownAboutUsSubject.next()
+    }, 300)
+  }
+
+  scrollToGallery = () => {
+    this.closedMobileMenu.emit();
+    setTimeout(() => {
+      this.sharedService.scrolledDownGallerySubject.next()
+    }, 300)
+  }
 }

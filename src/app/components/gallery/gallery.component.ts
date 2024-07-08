@@ -1,11 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements AfterViewInit {
+export class GalleryComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('galleryButton') galleryButton!: ElementRef
   @ViewChild('firstGalleryImage') firstImage!: ElementRef
@@ -14,13 +16,22 @@ export class GalleryComponent implements AfterViewInit {
   @ViewChild('forthGalleryImage') forthImage!: ElementRef
   @ViewChild('fifthGalleryImage') fifthImage!: ElementRef
   @ViewChild('sixthGalleryImage') sixthImage!: ElementRef
+  @ViewChild('galleryContainer') galleryContainer!: ElementRef
 
   isGalleryModalOpened = false;
   galleryButtonInterval: any;
 
-  constructor(private renderer: Renderer2) {}
+  subscription!: Subscription
+
+  constructor(private renderer: Renderer2, private sharedService: SharedService) {}
 
   ngAfterViewInit(): void {
+
+    this.subscription = this.sharedService.scrolledDownGallerySubject.subscribe(() => {
+      this.galleryContainer.nativeElement.scrollIntoView({ behaviour: 'smooth', block: 'start' })
+    })
+    
+
     this.intersectionObserver(this.firstImage, 'slide-left');
     this.intersectionObserver(this.secondImage, 'slide-right');
     this.intersectionObserver(this.thirdImage, 'slide-left');
@@ -72,5 +83,9 @@ export class GalleryComponent implements AfterViewInit {
     const html = document.getElementsByTagName('html');
     body[0].style.overflowY = 'auto'
     html[0].style.overflowY = 'auto';
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 }

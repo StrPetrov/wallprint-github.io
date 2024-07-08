@@ -11,7 +11,7 @@ export class WelcomeScreenComponent {
   constructor(private sharedService: SharedService) {}
 
   scrollDown = () => {
-    this.sharedService.scrolledDownSubject.next();
+    this.sharedService.scrolledDownAboutUsSubject.next();
   }
 
 }

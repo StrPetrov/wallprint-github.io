@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -14,12 +14,25 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('h2') h2!: ElementRef
   @ViewChild('p') p!: ElementRef
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    const scrollTop = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Calculate the percentage of scroll
+    const scrollPercent = scrollTop / maxScroll;
+
+    // Move the image up based on scroll percent
+    const moveDistance = -scrollPercent * 300; // Adjust multiplier as needed
+    this.imgToAnimate.nativeElement.style.transform = `translateY(${moveDistance}%)`;
+  }
+
   constructor(private sharedService: SharedService, private renderer: Renderer2) {}
 
   subscription!: Subscription
 
   ngAfterViewInit(): void {
-    this.subscription = this.sharedService.scrolledDownSubject.subscribe(() => {
+    this.subscription = this.sharedService.scrolledDownAboutUsSubject.subscribe(() => {
       this.aboutUs.nativeElement.scrollIntoView({behaviour: 'smooth', block: 'start' })
     })
 
@@ -51,7 +64,7 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
       },
       {
         root: null,
-        threshold: 0.4
+        threshold: 0.25
       }
     );
 

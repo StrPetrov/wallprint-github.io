@@ -13,7 +13,7 @@
       color: #a06969;
       transform: translateY(-100%);
       opacity: 0;
-      transition: 0.5s;
+      transition: 700ms linear;
     }
 
     p {
@@ -49,9 +49,9 @@
     position: absolute;
     height: 215px;
     width: 139px;
-    top: 0;
+    top: 60px;
     left: 40px;
-    transition: top 1000ms;
+    transition: transform linear 250ms;
   }
 }
 
