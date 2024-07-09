@@ -2,7 +2,7 @@
     <div class="price-calculator-grey-part"></div>
     <div class="price-calculator-inputs">
         <p class="price-calculator-inputs-text">Fläche in Quadratmetern</p>
-        <p class="price-calculator-inputs-value"> {{ inputRangeValue === null ? '0 m²' : inputRangeValue + ' m²' }}</p>
+        <p class="price-calculator-inputs-value"> {{ inputRangeValue === null ? '0 m' : inputRangeValue + ' m' }}</p>
         <input #rangeInput [(ngModel)]="inputRangeValue" class="progress" (input)="onInput()" type="range" min="0" max="25">
         <p class="price-calculator-inputs-or">or</p>
         <input (input)="onInput()" [(ngModel)]="inputRangeValue" type="number" placeholder="Schreiben Sie hier...">
