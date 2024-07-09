@@ -5,7 +5,7 @@
         <p class="price-calculator-inputs-value">{{ inputRangeValue === null ? '0m²' : inputRangeValue + 'm²' }}</p>
         <input #rangeInput [(ngModel)]="inputRangeValue" class="progress" (input)="onInput()" type="range" min="0" max="25">
         <p class="price-calculator-inputs-or">or</p>
-        <input (input)="onInput()" [(ngModel)]="inputRangeValue" type="text" inputmode="numeric" placeholder="Schreiben Sie hier...">
+        <input (input)="onInput()" [(ngModel)]="inputRangeValue" type="number" placeholder="Schreiben Sie hier...">
     </div>
     <div class="price-calculator-result">
         <p class="price-calculator-result-cost">Kosten</p>
