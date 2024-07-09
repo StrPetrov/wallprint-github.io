@@ -1,0 +1,35 @@
+<div class="contact-form">
+    <h3>Make your appointment</h3>
+    <p>Fill this form and we will respond as soon as possible</p>
+    <form [formGroup]="contactForm" (ngSubmit)="submit()">
+        <label for="first-name">First name <span class="required-field"> *</span></label>
+        <input [formControlName]="'firstName'" type="text" id="first-name" name="first-name">
+        <label for="last-name">Last name <span class="required-field"> *</span></label>
+        <input [formControlName]="'lastName'" type="text" id="last-name" name="last-name">
+        <label for="adress">Adress <span class="required-field"> *</span></label>
+        <input [formControlName]="'adress'" type="text" id="adress" name="adress">
+        <label for="phone-number">Phone number <span class="required-field"> *</span></label>
+        <input [formControlName]="'phoneNumber'" type="text" id="phone-number" name="phone-number">
+        <label for="surfice">Surfice <span class="required-field"> *</span></label>
+        <input [formControlName]="'surfice'" type="text" id="surfice" name="surfice">
+        <label for="email">Email <span class="required-field"> *</span></label>
+        <input [formControlName]="'email'" type="email" id="email" name="email">
+        <div class="last-row">
+            <div class="text-area">
+                <label for="other">Other</label>
+                <textarea [formControlName]="'other'" name="other" id="other"></textarea>
+            </div>
+            <div class="submit-button">
+                <button type="submit" *ngIf="!isMailSending && !isMailSent">
+                    <img src="assets/images/checkmark.svg" alt="checkmark">
+                </button>
+                <div class="spinner" *ngIf="isMailSending && !isMailSent">
+                    <app-spinner></app-spinner>
+                </div>
+                <div class="sent" *ngIf="isMailSent">
+                    <app-checkmark></app-checkmark>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

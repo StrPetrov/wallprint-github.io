@@ -16,7 +16,11 @@ import { SwiperDirective } from './directives/swiper.directive';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { PriceTagComponent } from './components/price-tag/price-tag.component';
 import { PriceCalculatorComponent } from './components/price-calculator/price-calculator.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './components/form/form.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CheckmarkComponent } from './components/checkmark/checkmark.component';
+import { HttpClientModule } from '@angular/common/http';
 
 register();
 
@@ -35,11 +39,16 @@ register();
     PricingComponent,
     PriceTagComponent,
     PriceCalculatorComponent,
+    FormComponent,
+    SpinnerComponent,
+    CheckmarkComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
