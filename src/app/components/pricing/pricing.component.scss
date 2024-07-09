@@ -1,5 +1,6 @@
 .pricing-container {
   background-color: rgba($color: #cccccc, $alpha: 0.3);
+  padding: 0 0 50px 0;
 
   .hidden {
     overflow: hidden;
@@ -24,7 +25,7 @@
   }
 
   .pricing {
-    padding: 40px 0 50px 0;
+    padding: 40px 0 0 0;
 
     h2 {
       font-family: "Montserrat", sans-serif;
@@ -39,6 +40,17 @@
       color: #2f2e2e;
       font-size: 18px;
       padding: 10px 0 0 0;
+    }
+  }
+
+  .pricing-calculator {
+
+    &-intro {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      text-align: center;
+      color: #2f2e2e;
+      padding: 0 0 70px 0;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-price-tag',
@@ -10,6 +10,7 @@ export class PriceTagComponent {
  @Input() priceValue!: string;
  @Input() printingSurficeFrom!: string;
  @Input() printingSurficeTo!: string;
+ @Output('clicked') clicked = new EventEmitter<void>()
 
  @ViewChild('overlayAnimation') overlayAnimation!: ElementRef;
  @ViewChild('priceTag') priceTag!: ElementRef;
@@ -17,6 +18,8 @@ export class PriceTagComponent {
  constructor(private renderer: Renderer2) {}
 
  triggerAnimation = () => {
+  this.clicked.emit();
+
   this.renderer.addClass(this.overlayAnimation.nativeElement, 'animate-background');
   this.renderer.addClass(this.priceTag.nativeElement, 'animate-price-tag');
 

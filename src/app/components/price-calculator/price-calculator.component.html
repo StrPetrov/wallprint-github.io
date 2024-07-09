@@ -1,0 +1,17 @@
+<div class="price-calculator">
+    <div class="price-calculator-grey-part"></div>
+    <div class="price-calculator-inputs">
+        <p class="price-calculator-inputs-text">Fläche in Quadratmetern</p>
+        <p class="price-calculator-inputs-value">{{ inputRangeValue === null ? '0m²' : inputRangeValue + 'm²' }}</p>
+        <input #rangeInput [(ngModel)]="inputRangeValue" class="progress" (input)="onInput()" type="range" min="0" max="25">
+        <p class="price-calculator-inputs-or">or</p>
+        <input (input)="onInput()" [(ngModel)]="inputRangeValue" type="number" placeholder="Schreiben Sie hier...">
+    </div>
+    <div class="price-calculator-result">
+        <p class="price-calculator-result-cost">Kosten</p>
+        <p class="price-calculator-result-amount">{{ result + '$' }}</p>
+        <div class="price-calculator-result-button">
+            <button>Reservierung machen</button>
+        </div>
+    </div>
+</div>

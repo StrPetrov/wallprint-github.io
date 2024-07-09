@@ -8,6 +8,8 @@ export class SharedService {
 
   scrolledDownAboutUsSubject = new Subject<void>();
   scrolledDownGallerySubject = new Subject<void>();
+  scrolledDownPricingSubject = new Subject<void>();
+
 
   constructor() { }
 

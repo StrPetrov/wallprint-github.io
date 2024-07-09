@@ -15,6 +15,8 @@ import { register } from 'swiper/element/bundle';
 import { SwiperDirective } from './directives/swiper.directive';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { PriceTagComponent } from './components/price-tag/price-tag.component';
+import { PriceCalculatorComponent } from './components/price-calculator/price-calculator.component';
+import { FormsModule } from '@angular/forms';
 
 register();
 
@@ -32,10 +34,12 @@ register();
     SwiperDirective,
     PricingComponent,
     PriceTagComponent,
+    PriceCalculatorComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
