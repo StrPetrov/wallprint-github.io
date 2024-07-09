@@ -7,8 +7,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class PriceCalculatorComponent{
 
-  private _inputRangeValue: string = '0'
-  result: string | number | null = 0;
+  private _inputRangeValue: number = 0
+  result: string | number | null = '0.00';
 
   @ViewChild('rangeInput') rangeInput!: ElementRef
 
@@ -27,31 +27,26 @@ export class PriceCalculatorComponent{
   }
 
   calculate = () => {
-    if (+this._inputRangeValue >= 0 && +this._inputRangeValue <= 5) {
-      this.result = +this._inputRangeValue * 100
+    if (this._inputRangeValue >= 0 && this._inputRangeValue <= 5) {
+      this.result = (this._inputRangeValue * 100).toFixed(2)
     }
-    else if (+this._inputRangeValue > 5 && +this._inputRangeValue <= 10) {
-      this.result = +this._inputRangeValue * 200
+    else if (this._inputRangeValue > 5 && this._inputRangeValue <= 10) {
+      this.result = (this._inputRangeValue * 200).toFixed(2)
     }
-    else if (+this._inputRangeValue > 10 && +this._inputRangeValue <= 25) {
-      this.result = +this._inputRangeValue * 300
+    else if (this._inputRangeValue > 10 && this._inputRangeValue <= 25) {
+      this.result = (this._inputRangeValue * 300).toFixed(2)
     }
   }
 
-  get inputRangeValue(): string {
+  get inputRangeValue(): number {
     return this._inputRangeValue;
   }
 
-  set inputRangeValue(value: string) {
+  set inputRangeValue(value: number) {
     if (value === null) {
-      this._inputRangeValue = '0'; 
-    } else if (+value < 0) {
-      this._inputRangeValue = '0'
-    }
-     else if (+value > 100) {
-      this._inputRangeValue = '100'
-     }
-     else {
+      this._inputRangeValue = 0; 
+    } 
+    else {
       this._inputRangeValue = value
      }
   }
