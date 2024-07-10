@@ -13,4 +13,12 @@ export class SharedService {
   scrolledDownGallerySubject = new Subject<void>();
   scrolledDownPricingSubject = new Subject<void>();
 
+  
+  sendMail = (data: any) => {
+    return this.http.post('http://localhost:8000/mail-sender.php', data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
 }

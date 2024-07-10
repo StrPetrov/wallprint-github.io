@@ -20,8 +20,8 @@
                 <textarea [formControlName]="'other'" name="other" id="other"></textarea>
             </div>
             <div class="submit-button">
-                <button type="submit" *ngIf="!isMailSending && !isMailSent">
-                    <img src="assets/images/checkmark.svg" alt="checkmark">
+                <button [disabled]="!contactForm.valid" type="submit" *ngIf="!isMailSending && !isMailSent">
+                    <img [src]="!contactForm.valid ? 'assets/images/checkmark-disabled.svg' : 'assets/images/checkmark-enabled.svg'" alt="checkmark">
                 </button>
                 <div class="spinner" *ngIf="isMailSending && !isMailSent">
                     <app-spinner></app-spinner>

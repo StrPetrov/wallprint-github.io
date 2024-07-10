@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
         adress: new FormControl(null, Validators.required),
         phoneNumber: new FormControl(null, Validators.required),
         surfice: new FormControl(null, Validators.required),
-        email: new FormControl(null, Validators.required),
+        email: new FormControl(null, [Validators.required, Validators.email]),
         other: new FormControl(null)
       })
   }
@@ -32,10 +32,14 @@ export class FormComponent implements OnInit {
 
     setTimeout(() => {
       this.isMailSent = true
-    }, 1000)
+    }, 1500)
   }
 
   submit = () => {
     this.sendMailAnimation();
+
+    // this.sharedService.sendMail({firstName: 'fdsfds', email: 'fdss@sef.com', surfice: 'fds', phoneNumber: '156315'}).subscribe((data: any) => {
+    //   console.log(data);
+    // })
   }
 }
