@@ -1,7 +1,9 @@
 <h2>Wir bauen Ihre Zukunft</h2>
 <div class="compare-container">
-  <img class="after" src="assets/images/after.png" alt="after" />
+  <img #after1 class="after" src="assets/images/after.png" alt="after" />
   <img #before1 class="before" src="assets/images/before.png" alt="before" />
+  <p *ngIf="!isComparisonStarted" class="after-text">After</p>
+  <p *ngIf="!isComparisonStarted" class="before-text">Before</p>
   <div #dragLine1 class="drag-line"></div>
   <input
     (input)="compareImages($event, before1, dragLine1)"

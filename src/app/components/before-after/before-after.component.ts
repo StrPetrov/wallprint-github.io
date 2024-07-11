@@ -9,6 +9,10 @@ export class BeforeAfterComponent implements AfterViewInit {
 
   @ViewChild('aboutUsText') text!: ElementRef
   @ViewChild('aboutUsTextWrapper') textWrapper!: ElementRef
+  @ViewChild('after1') after1!: ElementRef
+  @ViewChild('before1') before1!: ElementRef
+
+  isComparisonStarted: boolean = false;
 
   constructor(private renderer: Renderer2) {}
 
@@ -33,6 +37,10 @@ export class BeforeAfterComponent implements AfterViewInit {
   compareImages = (event: Event, before: HTMLElement, dragLine: HTMLElement) => {
     let inputElement = event.target as HTMLInputElement;
     let inputValue = inputElement.value;
+
+    this.isComparisonStarted = true;
+    this.renderer.setStyle(this.after1.nativeElement, 'filter', 'none')
+    this.renderer.setStyle(this.before1.nativeElement, 'filter', 'none')
 
     this.renderer.setStyle(dragLine, 'left', `${inputValue}%`)
 
