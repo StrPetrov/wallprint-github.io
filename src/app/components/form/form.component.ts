@@ -36,10 +36,19 @@ export class FormComponent implements OnInit {
   }
 
   submit = () => {
-    this.sendMailAnimation();
+    const formData = this.contactForm.value;
+    this.contactForm.reset();
+    
+    this.isMailSending = true;
 
-    // this.sharedService.sendMail({firstName: 'fdsfds', email: 'fdss@sef.com', surfice: 'fds', phoneNumber: '156315'}).subscribe((data: any) => {
-    //   console.log(data);
-    // })
+    this.sharedService.sendMail(formData).subscribe((data: any) => {
+      console.log(data);
+      this.isMailSending = false
+      this.isMailSent = true;
+
+      setTimeout(() => {
+        this.isMailSent = false;
+      }, 2000)
+    })
   }
 }

@@ -1,0 +1,14 @@
+<div class="faq">
+  <h3>Häufigsten gestellte Fragen</h3>
+  <ul>
+    <li *ngFor="let question of faq">
+      <div class="question-wrap" (click)="showHideAnswer(question.id)">
+        <p class="question">{{ question.question }}</p>
+        <img #imgRef [attr.img-id]="question.id" src="assets/images/down.svg" alt="down">
+      </div>
+      <p #answerRef [attr.data-id]="question.id" class="answer">
+        <span>{{ question.answer }}</span>
+      </p>
+    </li>
+  </ul>
+</div>

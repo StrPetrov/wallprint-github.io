@@ -21,6 +21,7 @@ import { FormComponent } from './components/form/form.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CheckmarkComponent } from './components/checkmark/checkmark.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FaqComponent } from './components/faq/faq.component';
 
 register();
 
@@ -42,6 +43,7 @@ register();
     FormComponent,
     SpinnerComponent,
     CheckmarkComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,
