@@ -22,6 +22,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CheckmarkComponent } from './components/checkmark/checkmark.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FaqComponent } from './components/faq/faq.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 register();
 
@@ -44,6 +45,7 @@ register();
     SpinnerComponent,
     CheckmarkComponent,
     FaqComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
