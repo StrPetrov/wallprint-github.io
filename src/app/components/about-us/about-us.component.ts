@@ -13,6 +13,7 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('animate') imgToAnimate!: ElementRef
   @ViewChild('h2') h2!: ElementRef
   @ViewChild('p') p!: ElementRef
+  @ViewChild('contactButton') contactButton!: ElementRef
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {
@@ -23,7 +24,7 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
     const scrollPercent = scrollTop / maxScroll;
 
     // Move the image up based on scroll percent
-    const moveDistance = -scrollPercent * 300; // Adjust multiplier as needed
+    const moveDistance = -scrollPercent * 400; // Adjust multiplier as needed
     this.imgToAnimate.nativeElement.style.transform = `translateY(${moveDistance}%)`;
   }
 
@@ -73,5 +74,14 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.subscription.unsubscribe()
+  }
+
+  scrollToForm = () => {
+    this.renderer.addClass(this.contactButton.nativeElement, 'animate-button')
+
+    setTimeout(() => {
+      this.sharedService.scrolledDownFormSubject.next()
+      this.renderer.removeClass(this.contactButton.nativeElement, 'animate-button')
+    }, 200)
   }
 }
