@@ -29,6 +29,31 @@
 
   .pricing {
     padding: 40px 0 0 0;
+    position: relative;
+
+    &-big-lines {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      top: 50px;
+      left: -100px;
+    }
+
+    &-small-lines {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: -150px;
+      left: -100px;
+    }
+
+    .small-lines-animate {
+      animation: rotating-small 0.5s ease-out forwards;
+    }
+
+    .big-lines-animate {
+      animation: rotating-big 1s ease-out forwards;
+    }
 
     h2 {
       font-family: $font-primary-1;
@@ -47,6 +72,16 @@
   }
 
   .pricing-calculator {
+    position: relative;
+
+    &-big-lines {
+      position: absolute;
+      bottom: -110px;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      transform: rotate(25deg);
+    }
 
     &-intro {
       font-family: $font-primary-1;
@@ -55,5 +90,31 @@
       color: $text-primary-1;
       padding: 0 0 70px 0;
     }
+  }
+}
+
+@keyframes rotating-big {
+  0% {
+    transform: rotate(0deg);
+    top: 50px;
+    left: -100px;
+  }
+  100% {
+    transform: rotate(385deg);
+    top: -30px;
+    left: -10px;
+  }
+}
+
+@keyframes rotating-small {
+  0% {
+    transform: rotate(0deg);
+    top: -150px;
+    left: -100px;
+  }
+  100% {
+    transform: rotate(360deg);
+    top: -60px;
+    left: 70px;
   }
 }

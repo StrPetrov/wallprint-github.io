@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -7,11 +8,15 @@ import { SharedService } from 'src/app/services/shared.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   isMailSending = false;
   isMailSent = false;
 
   contactForm!: FormGroup
+
+  subscription!: Subscription
+
+  @ViewChild('formRef') formWrapper!: ElementRef
 
   constructor(private sharedService: SharedService) {}
 
@@ -27,12 +32,10 @@ export class FormComponent implements OnInit {
       })
   }
 
-  sendMailAnimation = () => {
-    this.isMailSending = true
-
-    setTimeout(() => {
-      this.isMailSent = true
-    }, 1500)
+  ngAfterViewInit(): void {
+      this.subscription = this.sharedService.scrolledDownFormSubject.subscribe(() => {
+        this.formWrapper.nativeElement.scrollIntoView({ behaviour: 'smooth', block: 'start'} )
+      })
   }
 
   submit = () => {
@@ -50,5 +53,9 @@ export class FormComponent implements OnInit {
         this.isMailSent = false;
       }, 2000)
     })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 }

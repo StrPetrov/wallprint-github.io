@@ -1,11 +1,11 @@
-import { Component, ElementRef, QueryList, Renderer2, ViewChildren} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren} from '@angular/core';
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.scss']
 })
-export class FaqComponent {
+export class FaqComponent implements AfterViewInit {
 
   faq = [
     { question: 'Wie lange dauert ein Mauerbau?', answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptates sequi consequuntur distinctio quo explicabo inventore perspiciatis ipsam, assumenda obcaecati, adipisci rem odio! Quidem repellat nihil, libero officiis accusamus id.', id: 'answer1'},
@@ -21,7 +21,28 @@ export class FaqComponent {
   @ViewChildren('imgRef') imgRefs!: QueryList<ElementRef>;
   @ViewChildren('lineRef') lineRefs!: QueryList<ElementRef>;
 
+  @ViewChild('whiteLines') whiteLines!: ElementRef;
+  @ViewChild('faqRef') faqContainer!: ElementRef;
+
   constructor(private renderer: Renderer2) {}
+
+  ngAfterViewInit(): void {
+    const pricingObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.renderer.addClass(this.whiteLines.nativeElement, 'white-lines-animate');
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.3
+      }
+    );
+  
+    pricingObserver.observe(this.faqContainer.nativeElement)
+  }
 
   showHideAnswer = (questionId: string) => {
     this.answerVisibility[questionId] = !this.answerVisibility[questionId];

@@ -1,7 +1,9 @@
+@import '../../variables.scss';
+
 .overlay {
     position: absolute;
     inset: 0;
-    background-color: #1b1b1b;
+    background-color: $background-dark-1;
     touch-action: none;
     user-select: none;
     z-index: 10;
@@ -21,7 +23,7 @@
                     color: white;
                     font-size: 4vh;
                     padding: 3vh 0;
-                    font-family: 'Montserrat', sans-serif;
+                    font-family: $font-primary-1;
                     font-weight: 500;
                 }
         
@@ -71,7 +73,7 @@
             p {
                 color: rgba($color: #ffffff, $alpha: 0.3);
                 font-size: 14px;
-                font-family: 'Montserrat', sans-serif;
+                font-family: $font-primary-1;
             }
 
             .footer-social {

@@ -97,10 +97,17 @@ export class MobileMenuComponent implements AfterViewInit, OnDestroy, OnInit {
     }, 300)
   }
 
-  scrollToPricing= () => {
+  scrollToPricing = () => {
     this.closedMobileMenu.emit();
     setTimeout(() => {
       this.sharedService.scrolledDownPricingSubject.next()
+    }, 300)
+  }
+
+  scrollToForm = () => {
+    this.closedMobileMenu.emit();
+    setTimeout(() => {
+      this.sharedService.scrolledDownFormSubject.next()
     }, 300)
   }
 }

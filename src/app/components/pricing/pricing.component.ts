@@ -12,6 +12,8 @@ export class PricingComponent implements AfterViewInit, OnDestroy {
  @ViewChild('pricingText') text!: ElementRef
  @ViewChild('pricing') pricing!: ElementRef
  @ViewChild('calculator') calculator!: ElementRef
+ @ViewChild('smallLines') smallLines!: ElementRef
+ @ViewChild('bigLines') bigLines!: ElementRef
  subscription!: Subscription
 
  constructor(private renderer: Renderer2, private sharedService: SharedService) {}
@@ -37,6 +39,26 @@ export class PricingComponent implements AfterViewInit, OnDestroy {
   );
 
   textObserver.observe(this.textWrapper.nativeElement)
+
+  const pricingObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.renderer.addClass(this.bigLines.nativeElement, 'big-lines-animate')
+
+          setTimeout(() => {
+            this.renderer.addClass(this.smallLines.nativeElement, 'small-lines-animate')
+          }, 500)
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.10
+    }
+  );
+
+  pricingObserver.observe(this.pricing.nativeElement)
  }
 
  ngOnDestroy(): void {

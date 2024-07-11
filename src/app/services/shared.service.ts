@@ -12,6 +12,7 @@ export class SharedService {
   scrolledDownAboutUsSubject = new Subject<void>();
   scrolledDownGallerySubject = new Subject<void>();
   scrolledDownPricingSubject = new Subject<void>();
+  scrolledDownFormSubject = new Subject<void>();
 
   
   sendMail = (data: any) => {
