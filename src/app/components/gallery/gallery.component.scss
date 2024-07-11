@@ -1,5 +1,7 @@
+@import '../../variables.scss';
+
 .gallery-container {
-  background-color: #222222;
+  background-color: $background-dark-1;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -52,9 +54,9 @@
       border-radius: 999px;
       border: none;
       outline: none;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
-      font-family: 'Montserrat', sans-serif;
+      font-family: $font-primary-1;
       color: #ffffff;
       background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
     }

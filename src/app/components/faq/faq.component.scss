@@ -1,13 +1,15 @@
+@import '../../variables.scss';
+
 .faq {
-  background-color: #f8f8f8;
+  background-color: $background-primary-2;
   padding: 70px 0 50px 0;
 
   h3 {
     text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-size: 24px;
+    font-family: $font-primary-1;
+    font-size: 20px;
     font-weight: 500;
-    color: #3d3d3d;
+    color: $title-primary-1;
     padding: 0 0 60px 0;
   }
 
@@ -19,13 +21,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #444444;
+        background-color: $background-dark-1;
 
         .question {
             padding: 20px;
             color: #dedede;
             font-size: 15px;
-            font-family: "Montserrat", sans-serif;
+            font-family: $font-primary-1;
         }
 
         img {
@@ -42,10 +44,24 @@
         margin: 5px 35px;
         color: #3d3d3d;
         font-size: 15px;
-        font-family: "Montserrat", sans-serif;
+        line-height: 25px;
+        font-family: $font-primary-1;
         max-height: 0px;
         overflow: hidden;
         transition: 300ms max-height, 300ms padding;
+
+        &-line {
+          display: block;
+          height: 3px;
+          width: 0%;
+          margin: 15px 0 0 0;
+          background-image: linear-gradient(120deg, #fda085 0%, #f6d365 100%);
+          transition: width 1000ms linear;
+        }
+
+        .line-growth {
+          width: 100%;
+        }
       }
 
       .show-answer {

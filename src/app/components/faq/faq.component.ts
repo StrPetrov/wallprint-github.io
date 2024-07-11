@@ -19,6 +19,7 @@ export class FaqComponent {
 
   @ViewChildren('answerRef') answerRefs!: QueryList<ElementRef>;
   @ViewChildren('imgRef') imgRefs!: QueryList<ElementRef>;
+  @ViewChildren('lineRef') lineRefs!: QueryList<ElementRef>;
 
   constructor(private renderer: Renderer2) {}
 
@@ -32,14 +33,20 @@ export class FaqComponent {
     const imgElement = this.imgRefs.find((element: any) => {
       return element.nativeElement.getAttribute('img-id') === questionId
     })
+
+    const lineElement = this.lineRefs.find((element: any) => {
+      return element.nativeElement.getAttribute('line-id') === questionId
+    })
     
     if (this.answerVisibility[questionId]) {
       this.renderer.addClass(answerElement?.nativeElement, 'show-answer');
       this.renderer.addClass(imgElement?.nativeElement, 'rotate-up');
+      this.renderer.addClass(lineElement?.nativeElement, 'line-growth');
     }
     else {
       this.renderer.removeClass(answerElement?.nativeElement, 'show-answer');
       this.renderer.removeClass(imgElement?.nativeElement, 'rotate-up');
+      this.renderer.removeClass(lineElement?.nativeElement, 'line-growth');
     }
   }
 }

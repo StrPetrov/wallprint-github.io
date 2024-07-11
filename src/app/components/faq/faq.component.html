@@ -8,6 +8,7 @@
       </div>
       <p #answerRef [attr.data-id]="question.id" class="answer">
         <span>{{ question.answer }}</span>
+        <span #lineRef [attr.line-id]="question.id" class="answer-line"></span>
       </p>
     </li>
   </ul>

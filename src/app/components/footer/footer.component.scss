@@ -1,12 +1,14 @@
+@import '../../variables.scss';
+
 .footer {
-  background-color: #252525;
+  background-color: $background-dark-1;
   padding: 40px 40px 30px 40px;
   display: flex;
   flex-direction: column;
 
   &-contact {
     color: #dedede;
-    font-family: "Montserrat", sans-serif;
+    font-family: $font-primary-1;
     text-align: center;
     font-weight: 600;
   }
@@ -19,7 +21,7 @@
     span {
       text-align: center;
       color: rgba($color: #dedede, $alpha: 0.6);
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-primary-1;
       padding: 3px 0;
       font-size: 13px;
     }
@@ -44,7 +46,7 @@
   &-rights {
     text-align: center;
     color: rgba($color: #dedede, $alpha: 0.6);
-    font-family: "Montserrat", sans-serif;
+    font-family: $font-primary-1;
     font-size: 13px;
     padding: 20px 0 0 0;
   }

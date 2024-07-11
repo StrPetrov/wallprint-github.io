@@ -1,6 +1,9 @@
+@import '../../variables.scss';
+
 .material-container {
     padding: 50px 0px 0px 0px;
     display: flex;
+    background-color: $background-primary-2;
 
     .material-image-container {
         width: 16.6%;
@@ -21,7 +24,7 @@
 
         span {
             font-size: 40px;
-            font-family: 'Quicksand', sans-serif;
+            font-family: $font-primary-2;
             font-weight: 500;
             color: #ffffff;
             position: absolute;
@@ -37,8 +40,9 @@
 h2 {
     padding: 50px 20px 0 20px;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    color: #252525;
+    font-family: $font-primary-1;
+    font-size: 24px;
+    color: $title-primary-1;
     font-weight: 400;
+    background-color: $background-primary-2;
 }
