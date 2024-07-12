@@ -25,30 +25,60 @@
         <span [@showHide]="materialSelected === 'concrete' ? 'open': 'void'" *ngIf="materialSelected === 'concrete'">Beton</span>
     </div>
 </div> -->
-<h2>Wir bearbeiten alle Arten von Materialien</h2>
+
+
+<!-- <h2>Wir bearbeiten alle Arten von Materialien</h2>
 <div class="material-container">
     <div class="material-image-container" (click)="selectBrick()" #brick>
         <img class="material-brick" src="assets/images/brick.png" alt="brick">
-        <span [@showHide]="materialSelected === 'brick' ? 'open': 'void'" *ngIf="materialSelected === 'brick'"></span>
     </div>
     <div class="material-image-container" (click)="selectWood()" #wood>
         <img class="material-wood" src="assets/images/wood.png" alt="wood">
-        <span [@showHide]="materialSelected === 'wood' ? 'open': 'void'" *ngIf="materialSelected === 'wood'"></span>
     </div>
     <div class="material-image-container" (click)="selectTextureWall()" #textureWall>
         <img class="material-texture-wall" src="assets/images/texture-wall.png" alt="texture-wall">
-        <span [@showHide]="materialSelected === 'textureWall' ? 'open': 'void'" *ngIf="materialSelected === 'textureWall'"></span>
     </div>
     <div class="material-image-container" (click)="selectGlass()" #glass>
         <img class="material-glass" src="assets/images/glass.png" alt="glass">
-        <span [@showHide]="materialSelected === 'glass' ? 'open': 'void'" *ngIf="materialSelected === 'glass'"></span>
     </div>
     <div class="material-image-container" (click)="selectMetal()" #metal>
         <img class="material-metal" src="assets/images/metal.png" alt="metal">
-        <span [@showHide]="materialSelected === 'metal' ? 'open': 'void'" *ngIf="materialSelected === 'metal'"></span>
     </div>
     <div class="material-image-container" (click)="selectConcrete()" #concrete>
         <img class="material-concrete" src="assets/images/concrete.png" alt="concrete">
-        <span [@showHide]="materialSelected === 'concrete' ? 'open': 'void'" *ngIf="materialSelected === 'concrete'"></span>
     </div>
+</div> -->
+
+<h2>Wir bearbeiten alle Arten von Materialien</h2>
+<div class="material-container">
+    <div class="material-image-container" #wood>
+        <img class="material-wood" src="assets/images/wood.png" alt="wood">
+        <img #woodAfter class="material-after" src="assets/images/wood-after.png" alt="wood-after">
+    </div>
+    <p #woodWord class="material-type">Wood</p>
+    <div class="material-image-container" #brick>
+        <img class="material-brick" src="assets/images/brick.png" alt="brick">
+        <img #brickAfter class="material-after" src="assets/images/brick-after.png" alt="brick-after">
+    </div>
+    <p class="material-type">Brick</p>
+    <div class="material-image-container" #textureWall>
+        <img class="material-texture-wall" src="assets/images/texture-wall.png" alt="texture-wall">
+        <img #textureWallAfter class="material-after" src="assets/images/texture-wall-after.png" alt="texture-wall-after">
+    </div>
+    <p class="material-type">Texture wall</p>
+    <div class="material-image-container" #glass>
+        <img class="material-glass" src="assets/images/glass.png" alt="glass">
+        <img #glassAfter class="material-after" src="assets/images/glass-after.png" alt="glass-after">
+    </div>
+    <p class="material-type">Glass</p>
+    <div class="material-image-container" #metal>
+        <img class="material-metal" src="assets/images/metal.png" alt="metal">
+        <img #metalAfter class="material-after" src="assets/images/metal-after.png" alt="metal-after">
+    </div>
+    <p class="material-type">Metal</p>
+    <div class="material-image-container" #concrete>
+        <img class="material-concrete" src="assets/images/concrete.png" alt="concrete">
+        <img #concreteAfter class="material-after" src="assets/images/concrete-after.png" alt="concrete-afer">
+    </div>
+    <p class="material-type">Concrete</p>
 </div>
