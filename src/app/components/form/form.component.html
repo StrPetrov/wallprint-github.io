@@ -2,18 +2,37 @@
     <h3>Make your appointment</h3>
     <p>Fill this form and we will respond as soon as possible</p>
     <form [formGroup]="contactForm" (ngSubmit)="submit()">
-        <label for="first-name">First name <span class="required-field"> *</span></label>
-        <input [formControlName]="'firstName'" type="text" id="first-name" name="first-name">
-        <label for="last-name">Last name <span class="required-field"> *</span></label>
-        <input [formControlName]="'lastName'" type="text" id="last-name" name="last-name">
-        <label for="adress">Adress <span class="required-field"> *</span></label>
-        <input [formControlName]="'adress'" type="text" id="adress" name="adress">
-        <label for="phone-number">Phone number <span class="required-field"> *</span></label>
-        <input [formControlName]="'phoneNumber'" type="text" id="phone-number" name="phone-number">
-        <label for="surfice">Surfice <span class="required-field"> *</span></label>
-        <input [formControlName]="'surfice'" type="text" id="surfice" name="surfice">
-        <label for="email">Email <span class="required-field"> *</span></label>
-        <input [formControlName]="'email'" type="email" id="email" name="email">
+        <div class="contact-form-input-wrapper">
+            <label for="first-name">First name <span class="required-field"> *</span></label>
+            <input [formControlName]="'firstName'" type="text" id="first-name" name="first-name">
+            <span *ngIf="!contactForm.get('firstName')?.valid && contactForm.get('firstName')?.touched" class="error-message">This field is required</span>
+        </div>
+        <div class="contact-form-input-wrapper">
+            <label for="last-name">Last name <span class="required-field"> *</span></label>
+            <input [formControlName]="'lastName'" type="text" id="last-name" name="last-name">
+            <span *ngIf="!contactForm.get('lastName')?.valid && contactForm.get('lastName')?.touched" class="error-message">This field is required</span>
+        </div>
+        <div class="contact-form-input-wrapper">
+            <label for="adress">Adress <span class="required-field"> *</span></label>
+            <input [formControlName]="'adress'" type="text" id="adress" name="adress">
+            <span *ngIf="!contactForm.get('adress')?.valid && contactForm.get('adress')?.touched" class="error-message">This field is required</span>
+        </div>
+        <div class="contact-form-input-wrapper">
+            <label for="phone-number">Phone number <span class="required-field"> *</span></label>
+            <input inputmode="numeric" [formControlName]="'phoneNumber'" type="text" id="phone-number" name="phone-number">
+            <span *ngIf="!contactForm.get('phoneNumber')?.valid && contactForm.get('phoneNumber')?.touched" class="error-message">This field is required</span>
+        </div>
+        <div class="contact-form-input-wrapper">
+            <label for="surfice">Surfice (m²) <span class="required-field"> *</span></label>
+            <input [formControlName]="'surfice'" type="text" id="surfice" name="surfice">
+            <span *ngIf="!contactForm.get('surfice')?.valid && contactForm.get('surfice')?.touched" class="error-message">This field is required</span>
+        </div>
+        <div class="contact-form-input-wrapper">
+            <label for="email">Email <span class="required-field"> *</span></label>
+            <input [formControlName]="'email'" type="email" id="email" name="email">
+            <span *ngIf="!contactForm.get('email')?.valid && contactForm.get('email')?.touched && (contactForm.get('email')?.value === '' || contactForm.get('email')?.value === null)" class="error-message">This field is required</span>
+            <span *ngIf="(contactForm.get('email')?.value !== null && contactForm.get('email')?.value !== '') && !contactForm.get('email')?.valid" class="error-message">Invalid email</span>
+        </div>
         <div class="last-row">
             <div class="text-area">
                 <label for="other">Other</label>
