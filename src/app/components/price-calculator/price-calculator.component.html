@@ -5,13 +5,14 @@
         <p class="price-calculator-inputs-value"> {{ inputRangeValue === null ? '0 m²' : inputRangeValue + ' m²' }}</p>
         <input #rangeInput [(ngModel)]="inputRangeValue" class="progress" (input)="onInput()" type="range" min="0" max="25">
         <p class="price-calculator-inputs-or">or</p>
-        <input (input)="onInput()" [(ngModel)]="inputRangeValue" type="number" placeholder="Schreiben Sie hier...">
+        <input (focus)="onFocus($event)" (input)="onInput(); validateInput($event);" [(ngModel)]="inputRangeValue" type="number" placeholder="Schreiben Sie hier...">
+        <p class="price-calculator-inputs-error-message" *ngIf="showMax">25m² is max value</p>
     </div>
     <div class="price-calculator-result">
         <p class="price-calculator-result-cost">Kosten</p>
         <p class="price-calculator-result-amount">{{ result + '$' }}</p>
         <div class="price-calculator-result-button">
-            <button>Reservierung machen</button>
+            <button (click)="scrollToForm()">Reservierung machen</button>
         </div>
     </div>
 </div>
