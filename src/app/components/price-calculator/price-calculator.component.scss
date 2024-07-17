@@ -127,6 +127,11 @@
                 padding: 20px 80px 50px 80px;
             }
 
+            @include sm {
+                padding: 20px 150px 50px 150px;
+            }
+
+
             button {
                 width: 100%;
                 padding: 20px;

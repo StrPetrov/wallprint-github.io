@@ -12,6 +12,10 @@
         font-family: $font-primary-1;
         font-size: 20px;
         font-weight: 900;
+
+        @include sm {
+            font-size: 30px;
+        }
     }
 
     p {
@@ -21,6 +25,10 @@
         padding: 15px 100px 0 100px;
         font-size: 14px;
         font-family: $font-primary-2;
+
+        @include sm {
+            font-size: 20px;
+        }
     }
 
     form {

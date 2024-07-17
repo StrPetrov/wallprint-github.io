@@ -61,6 +61,11 @@
       height: 280px;
       width: 190px;
     }
+
+    @include sm {
+      height: 320px;
+      width: 230px;
+    }
   }
 }
 
@@ -118,6 +123,10 @@
 
   .row-1 {
     padding: 0 40px;
+
+    @include sm {
+      padding: 0 100px;
+    }
   }
 
   .row-2 {
@@ -130,6 +139,10 @@
     @include xs {
       padding: 70px 150px 120px 150px;
     }
+
+    @include sm {
+      padding: 70px 200px 120px 200px;
+    }
   }
 }
 
@@ -139,6 +152,10 @@
 
   @include xs {
     padding: 0 150px 70px 150px;
+  }
+
+  @include sm {
+    padding: 0 250px 70px 250px;
   }
 
   button {
