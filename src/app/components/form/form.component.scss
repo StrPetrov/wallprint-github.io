@@ -1,4 +1,5 @@
 @import '../../variables.scss';
+@import '../../responsive.scss';
 
 .contact-form {
     background-color: $background-dark-1;
@@ -74,6 +75,10 @@
                 flex-basis: 70%;
                 flex-direction: column;
 
+                @include xs {
+                    flex-basis: 80%;
+                }
+
                 label {
                     font-size: 12px;
                     font-family: $font-primary-1;
@@ -109,6 +114,11 @@
 
                     img {
                         display: block;
+
+                        @include xxs {
+                            width: 60px;
+                            height: 60px;
+                        }
                     }
                 }
 
@@ -116,6 +126,10 @@
                     margin-top: 15px;
                     margin-right: -15px;
                     scale: 0.625;
+
+                    @include xxs {
+                        scale: 0.75;
+                    }
                 }
 
                 .sent {

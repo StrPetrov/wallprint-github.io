@@ -1,4 +1,5 @@
 @import '../../variables.scss';
+@import '../../responsive.scss';
 
 // .material-container {
 //     padding: 50px 0px 0px 0px;
@@ -47,6 +48,18 @@
         overflow: hidden;
         position: relative;
 
+        @include xxs {
+            height: 270px;
+        }
+
+        @include xs {
+            height: 300px;
+        }
+
+       .material-background {
+        width: 100%;
+       }
+
        .material-after {
         position: absolute;
         top: 50%;
@@ -56,6 +69,10 @@
         width: 70%;
         object-fit: contain;
         transition: opacity 1000ms linear;
+
+        @include xxs {
+            width: 55%;
+        }
        }
     }
 

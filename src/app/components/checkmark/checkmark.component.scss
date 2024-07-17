@@ -1,3 +1,5 @@
+@import '../../responsive.scss';
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -15,7 +17,12 @@
     margin: 10% auto;
     box-shadow: inset 0px 0px 0px #7ac142;
     animation: fill 0.4s ease-in-out 0.4s forwards,
-      scale 0.3s ease-in-out 0.9s both;
+    scale 0.3s ease-in-out 0.9s both;
+
+    @include xxs {
+      width: 60px;
+      height: 60px;
+    }
   }
 
   .checkmark__circle {
