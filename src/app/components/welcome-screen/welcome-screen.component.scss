@@ -1,7 +1,12 @@
 @import '../../responsive.scss';
+@import '../../variables.scss';
 
 .welcome-screen {
   position: relative;
+
+  @include md {
+    display: none;
+  }
 
   .video-placeholder {
     width: 100%;
@@ -110,5 +115,191 @@
   }
   100% {
     transform: translateX(0%);
+  }
+}
+
+
+.welcome-screen-desktop {
+  position: relative;
+  height: 100vh;
+  display: none;
+
+  @include md {
+    display: block;
+  }
+
+  &-video-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(20px);
+    }
+  }
+
+  &-visible-video-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 80%;
+    background-color: #333;
+    border-radius: 15px;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+      padding: 15px 142px 0 142px;
+      position: absolute;
+      top: 0;
+
+      .social-icons {
+        display: flex;
+        align-items: center;
+        width: 115px;
+
+        img {
+          margin-right: 10px;
+          width: 25px;
+          height: 25px;
+        }
+
+        .tiktok {
+          width: 33px;
+          height: 33px;
+          margin-right: -3px;
+        }
+      }
+
+      .logo-name {
+        color: white;
+        font-family: $font-primary-1;
+        font-size: 22px
+      }
+
+      .header-contact {
+        width: 115px;
+
+        p {
+          color: white;
+          font-family: $font-primary-1;
+          font-size: 16px;
+          font-weight: 500;
+          text-align: right;
+
+          span {
+            display: inline-block;
+            transition: scale 100ms linear;
+            
+            &:hover {
+              scale: 1.1;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    &-line {
+      position: absolute;
+      top: 75px;
+      height: 1px;
+      width: calc(100% - 180px);
+      background-color: white;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &-title {
+      position: absolute;
+      top: 180px;
+      right: 130px;
+      width: 40%;
+
+      p {
+        font-size: 64px;
+        font-family: $font-primary-1;
+        color: white;
+        font-weight: bold;
+        text-align: right;
+      }
+    }
+
+    &-scroll-down {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+
+      .arrows {
+        width: 60px;
+        height: 72px;
+        position: absolute;
+        left: 50%;
+        margin-left: -30px;
+        bottom: 20px;
+        scale: 0.8;
+      }
+      
+      .arrows path {
+        stroke: #ffffff;
+        fill: transparent;
+        stroke-width: 3px;  
+        animation: arrow 2s infinite;
+        -webkit-animation: arrow 2s infinite; 
+      }
+      
+      @keyframes arrow
+      {
+      0% {opacity:0}
+      40% {opacity:1}
+      80% {opacity:0}
+      100% {opacity:0}
+      }
+      
+      @-webkit-keyframes arrow /*Safari and Chrome*/
+      {
+      0% {opacity:0}
+      40% {opacity:1}
+      80% {opacity:0}
+      100% {opacity:0}
+      }
+      
+      .arrows path.a1 {
+        animation-delay:-1s;
+        -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+      }
+      
+      .arrows path.a2 {
+        animation-delay:-0.5s;
+        -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+      }
+    }
+  }
+
+  .pointer-circle {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    border: 2px solid white;
+    border-radius: 100%;
+    top: -20px;
+    left: -20px;
+    pointer-events: none;
+    visibility: hidden;
   }
 }
