@@ -1,0 +1,12 @@
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="20px" height="20px" viewBox="0 0 48.000000 48.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)"
+fill="#ffffff" stroke="none">
+<path d="M105 310 l-70 -70 72 -72 c58 -57 75 -70 85 -60 10 10 0 25 -47 72
+l-59 60 58 59 c50 51 64 81 38 81 -4 0 -39 -32 -77 -70z"/>
+<path d="M284 369 c-3 -6 20 -37 52 -70 l58 -59 -59 -60 c-47 -47 -57 -62 -47
+-72 10 -10 27 3 85 60 l72 72 -70 70 c-72 73 -79 77 -91 59z"/>
+</g>
+</svg>

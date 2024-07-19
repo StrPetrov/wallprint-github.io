@@ -1,55 +1,113 @@
-<div class="about-us" #aboutUs>
-  <div class="hidden">
-    <h2 #h2>Über uns</h2>
+<div class="about-us-wrapper">
+  <div class="about-us" #aboutUs>
+    <div class="hidden">
+      <h2 #h2>Über uns</h2>
+    </div>
+    <div class="hidden">
+      <p #p>
+        Unser Unternehmen spezialisiert sich auf das Bedrucken von Wänden mit
+        modernster Maschinentechnologie und verwandelt Räume mit Präzision und
+        Kreativität. Wir bringen Ihre Visionen zum Leben und bieten eine
+        nahtlose und innovative Lösung für atemberaubende Wanddesigns.
+      </p>
+    </div>
   </div>
-  <div class="hidden">
-    <p #p>
-      Unser Unternehmen spezialisiert sich auf das Bedrucken von Wänden mit
-      modernster Maschinentechnologie und verwandelt Räume mit Präzision und
-      Kreativität. Wir bringen Ihre Visionen zum Leben und bieten eine nahtlose
-      und innovative Lösung für atemberaubende Wanddesigns.
-    </p>
+  <div class="images-container">
+    <img
+      class="non-positioned-image"
+      src="assets/images/about-us-2.png"
+      alt="image-2"
+    />
+    <img
+      #animate
+      class="positioned-image"
+      src="assets/images/about-us-1.png"
+      alt="image-1"
+    />
   </div>
-</div>
-<div class="images-container">
-  <img
-    class="non-positioned-image"
-    src="assets/images/about-us-2.png"
-    alt="image-2"
-  />
-  <img
-    #animate
-    class="positioned-image"
-    src="assets/images/about-us-1.png"
-    alt="image-1"
-  />
-</div>
-<div class="icons-container">
-  <div class="row row-1">
-    <div class="icon-container">
+  <div class="icons-container">
+    <div class="row row-1">
+      <div class="icon-container">
         <img class="icon-wide" src="assets/images/wide.svg" alt="wide" />
         <span class="icon-wide-desc">Ausgedehnt</span>
-    </div>
-    <div class="icon-container">
-        <img class="icon-certificate" src="assets/images/certificate.svg" alt="certificate" />
+      </div>
+      <div class="icon-container">
+        <img
+          class="icon-certificate"
+          src="assets/images/certificate.svg"
+          alt="certificate"
+        />
         <span class="icon-certificate-desc">Exzellente Bildqualität</span>
-    </div>
-    <div class="icon-container">
+      </div>
+      <div class="icon-container">
         <img class="icon-lock" src="assets/images/lock.svg" alt="lock" />
         <span class="icon-lock-desc">Strapazierfähig</span>
+      </div>
     </div>
-  </div>
-  <div class="row row-2">
-    <div class="icon-container">
+    <div class="row row-2">
+      <div class="icon-container">
         <img class="icon-heart" src="assets/images/heart.svg" alt="heart" />
         <span class="icon-heart-desc">Beständig</span>
-    </div>
-    <div class="icon-container">
-        <img class="icon-sun" src="assets/images/sun.svg" alt="sun" />
+      </div>
+      <div class="icon-container">
+        <img class="icon-sun" src="assets/images/clock.svg" alt="sun" />
         <span class="icon-sun-desc">Schnelltrocknend</span>
+      </div>
     </div>
   </div>
-</div>
-<div class="contact-button">
+  <div class="contact-button">
     <button #contactButton (click)="scrollToForm()">Contact us</button>
+  </div>
+</div>
+
+<div class="about-us-desktop-wrapper">
+  <div class="about-us-desktop">
+    <div class="about-us-desktop-title">
+      <h1>über uns</h1>
+      <p>Let's talk</p>
+    </div>
+    <div class="about-us-desktop-text">
+      <p>
+        Unser Unternehmen spezialisiert sich auf das Bedrucken von Wänden mit
+        modernster Maschinentechnologie und verwandelt Räume mit Präzision und
+        Kreativität. Wir bringen Ihre Visionen zum Leben und bieten eine
+        nahtlose und innovative Lösung für atemberaubende Wanddesigns.
+      </p>
+    </div>
+    <div class="about-us-desktop-machine">
+      <img src="assets/images/machine.png" alt="machine" />
+    </div>
+    <img class="cloud-image-1" src="assets/images/cloud1.png" alt="cloud" />
+    <img class="cloud-image-2" src="assets/images/cloud2.png" alt="cloud" />
+    <img class="cloud-image-3" src="assets/images/cloud3.png" alt="cloud" />
+    <img class="cloud-image-4" src="assets/images/cloud4.png" alt="cloud" />
+    <img class="cloud-image-5" src="assets/images/cloud3.png" alt="cloud" />
+    <img class="cloud-image-6" src="assets/images/cloud4.png" alt="cloud" />
+  </div>
+  <div class="about-us-desktop-icons">
+    <div class="icon-container">
+      <img class="icon-wide" src="assets/images/wide.svg" alt="wide" />
+      <span class="icon-wide-desc">Ausgedehnt</span>
+    </div>
+    <div class="icon-container">
+      <img
+        class="icon-certificate"
+        src="assets/images/certificate.svg"
+        alt="certificate"
+      />
+      <span class="icon-certificate-desc">Exzellente Bildqualität</span>
+    </div>
+    <div class="icon-container">
+      <img class="icon-lock" src="assets/images/lock.svg" alt="lock" />
+      <span class="icon-lock-desc">Strapazierfähig</span>
+    </div>
+    <div class="icon-container">
+      <img class="icon-heart" src="assets/images/heart.svg" alt="heart" />
+      <span class="icon-heart-desc">Beständig</span>
+    </div>
+    <div class="icon-container">
+      <img class="icon-sun" src="assets/images/clock.svg" alt="sun" />
+      <span class="icon-sun-desc">Schnelltrocknend</span>
+    </div>
+  </div>
 </div>
