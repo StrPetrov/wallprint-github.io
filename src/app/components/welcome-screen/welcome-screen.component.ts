@@ -10,6 +10,11 @@ export class WelcomeScreenComponent implements AfterViewInit {
 
   @ViewChild('pointerCircle') pointerCircle!: ElementRef
   @ViewChild('mousePointerArea') mousePointerArea!: ElementRef
+  @ViewChild('header') header!: ElementRef
+  @ViewChild('icons') icons!: ElementRef
+  @ViewChild('contact') contact!: ElementRef
+  @ViewChild('line') line!: ElementRef
+  @ViewChild('title') title!: ElementRef
 
   mouse = { x: 0, y: 0 }
   circle = { x: 0, y: 0 }
@@ -77,5 +82,23 @@ export class WelcomeScreenComponent implements AfterViewInit {
     this.pointerCircle.nativeElement.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`
 
     window.requestAnimationFrame(this.tick)
+  }
+
+  triggerAnimation = () => {
+    this.renderer.addClass(this.mousePointerArea.nativeElement, 'animate-video')
+    
+    setTimeout(() => {
+      this.renderer.setStyle(this.header.nativeElement, 'opacity', '1');
+      this.renderer.setStyle(this.icons.nativeElement, 'transform', 'translateX(0%)')
+      this.renderer.setStyle(this.contact.nativeElement, 'transform', 'translateX(0%)')
+    }, 500)
+
+    setTimeout(() => {
+      this.renderer.setStyle(this.line.nativeElement, 'opacity', '1');
+    }, 1000)
+
+    setTimeout(() => {
+      this.renderer.addClass(this.title.nativeElement, 'animate-title');
+    }, 1250)
   }
 }

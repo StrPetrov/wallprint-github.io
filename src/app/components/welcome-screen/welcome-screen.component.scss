@@ -142,15 +142,22 @@
     }
   }
 
+  .animate-video {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
   &-visible-video-placeholder {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 100%);
+    opacity: 0;
     height: 80%;
     width: 80%;
     background-color: #333;
     border-radius: 15px;
+    transition: transform 500ms linear, opacity 500ms linear;
 
     video {
       width: 100%;
@@ -167,11 +174,15 @@
       padding: 15px 142px 0 142px;
       position: absolute;
       top: 0;
+      opacity: 0;
+      transition: opacity 500ms linear;
 
       .social-icons {
         display: flex;
         align-items: center;
         width: 115px;
+        transition: transform 500ms linear;
+        transform: translateX(-20px);
 
         img {
           margin-right: 10px;
@@ -198,6 +209,8 @@
 
       .header-contact {
         width: 115px;
+        transition: transform 500ms linear;
+        transform: translateX(20px);
 
         p {
           color: white;
@@ -227,6 +240,13 @@
       background-color: white;
       left: 50%;
       transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 250ms linear;
+    }
+
+    .animate-title {
+      opacity: 1;
+      transform: translateY(0%);
     }
 
     &-title {
@@ -234,6 +254,9 @@
       top: 180px;
       right: 130px;
       width: 40%;
+      transform: translateY(30px);
+      opacity: 0;
+      transition: transform 500ms linear, opacity 500ms linear;
 
       p {
         font-size: 64px;

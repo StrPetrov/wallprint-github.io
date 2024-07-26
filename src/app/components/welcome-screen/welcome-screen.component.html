@@ -38,9 +38,10 @@
       [loop]="true"
       [playsInline]="true"
       [disablePictureInPicture]="true"
+      (loadeddata)="triggerAnimation()"
     ></video>
-    <div class="welcome-screen-desktop-visible-video-placeholder-header">
-      <div class="social-icons">
+    <div #header class="welcome-screen-desktop-visible-video-placeholder-header">
+      <div #icons class="social-icons">
         <img src="assets/images/facebook-white.svg" alt="facebook">
         <img src="assets/images/instagram-white.svg" alt="instagram">
         <img class="tiktok" src="assets/images/tiktok-white.svg" alt="tiktok">
@@ -48,12 +49,12 @@
       <div class="logo-name">
         <h1>Logo</h1>
       </div>
-      <div class="header-contact">
+      <div #contact class="header-contact">
         <p><span>Contact</span></p>
       </div>
     </div>
-    <div class="welcome-screen-desktop-visible-video-placeholder-line"></div>
-    <div class="welcome-screen-desktop-visible-video-placeholder-title">
+    <div #line class="welcome-screen-desktop-visible-video-placeholder-line"></div>
+    <div #title class="welcome-screen-desktop-visible-video-placeholder-title">
       <p>Wände der nächsten Ebene</p>
     </div>
     <div class="welcome-screen-desktop-visible-video-placeholder-scroll-down">

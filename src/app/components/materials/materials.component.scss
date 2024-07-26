@@ -43,6 +43,55 @@
     flex-direction: column;
     background-color: $background-primary-2;
 
+    @include md {
+        padding: 0;
+        background-color: $background-dark-1;
+    }
+
+    &-header {
+        position: relative;
+        display: none;
+
+        @include md {
+            display: block;
+        }
+
+        h2 {
+            color: white;
+            font-family: $font-primary-2;
+            text-align: center;
+            font-size: 27px;
+            font-weight: 500;
+            padding: 80px 0 160px 0;
+        }
+
+        &-aurora-1 {
+            position: absolute;
+            bottom: 0;
+            left: -350px;
+            width: 300px;
+            height: 300px;
+            background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.3;
+            transition: left 500ms ease-out;
+        }
+
+        &-aurora-2 {
+            position: absolute;
+            bottom: 0;
+            right: -350px;
+            width: 300px;
+            height: 300px;
+            background-image: linear-gradient(120deg, #64b3f4 0%, #c2e59c 100%);
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.3;
+            transition: right 500ms ease-out;
+        }
+    }
+
     .material-image-container { 
         height: 220px;
         overflow: hidden;
@@ -89,11 +138,18 @@
         padding: 10px 0;
         font-family: $font-primary-2;
         font-weight: 700;
-        color: #b4b0b0
+        color: #b4b0b0;
+
+        @include md {
+            padding: 20px 0;
+            font-family: $font-primary-3;
+            font-size: 35px;
+            color: $text-primary-3;
+        }
     }
 }
 
-h2 {
+.material-mobile-material-header {
     padding: 50px 20px 0 20px;
     text-align: center;
     font-family: $font-primary-1;
@@ -101,4 +157,8 @@ h2 {
     color: $title-primary-1;
     font-weight: 400;
     background-color: $background-primary-2;
+
+    @include md {
+        display: none;
+    }
 }

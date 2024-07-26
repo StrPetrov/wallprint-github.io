@@ -29,6 +29,10 @@ export class MaterialsComponent implements AfterViewInit {
   @ViewChild('concrete') concrete?: ElementRef
   @ViewChild('concreteAfter') concreteAfter?: ElementRef
 
+  @ViewChild('aurora1') aurora1?: ElementRef
+  @ViewChild('aurora2') aurora2?: ElementRef
+  @ViewChild('materialContainerHeader') materialContainerHeader?: ElementRef
+
   // materialSelected = 'glass';
 
   constructor(private renderer: Renderer2, private elRef: ElementRef) {}
@@ -40,6 +44,8 @@ export class MaterialsComponent implements AfterViewInit {
     this.intersectionObserver(this.glass, this.glassAfter)
     this.intersectionObserver(this.metal, this.metalAfter)
     this.intersectionObserver(this.concrete, this.concreteAfter)
+    this.intersectionObserverAurora(this.materialContainerHeader, this.aurora1, 'left', '-100px')
+    this.intersectionObserverAurora(this.materialContainerHeader, this.aurora2, 'right', '-100px')
   }
 
   intersectionObserver = (toObserve: any, toAnimate: any) => {
@@ -51,6 +57,27 @@ export class MaterialsComponent implements AfterViewInit {
           }
           else {
             this.renderer.setStyle(toAnimate.nativeElement, 'opacity', '0')
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 1
+      }
+    );
+
+    observer.observe(toObserve.nativeElement);
+  }
+
+  intersectionObserverAurora = (toObserve: any, toAnimate: any, property: any, value: any) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.renderer.setStyle(toAnimate.nativeElement, property, value)
+          }
+          else {
+            this.renderer.setStyle(toAnimate.nativeElement, property, '-350px')
           }
         });
       },

@@ -14,6 +14,10 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('h2') h2!: ElementRef
   @ViewChild('p') p!: ElementRef
   @ViewChild('contactButton') contactButton!: ElementRef
+  @ViewChild('aboutUsDesktop') aboutUsDesktop!: ElementRef
+  @ViewChild('machine') machine!: ElementRef
+  @ViewChild('aurora2') aurora2!: ElementRef
+  @ViewChild('aurora3') aurora3!: ElementRef
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {
@@ -53,6 +57,21 @@ export class AboutUsComponent implements AfterViewInit, OnDestroy {
 
     // imageObserver.observe(this.imgToAnimate.nativeElement);
 
+    const aboutUsDesktopObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.renderer.setStyle(this.machine.nativeElement, 'transform', 'translateY(0%)')
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.8
+      }
+    );
+
+    aboutUsDesktopObserver.observe(this.aboutUsDesktop.nativeElement)
 
     const textObserver = new IntersectionObserver(
       (entries) => {

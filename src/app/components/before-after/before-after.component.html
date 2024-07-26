@@ -1,23 +1,29 @@
-<h2>Wir bauen Ihre Zukunft</h2>
-<div class="compare-container">
-  <img #after1 class="after" src="assets/images/after.png" alt="after" />
-  <img #before1 class="before" src="assets/images/before.png" alt="before" />
-  <p *ngIf="!isComparisonStarted" class="after-text">After</p>
-  <p *ngIf="!isComparisonStarted" class="before-text">Before</p>
-  <div #dragLine1 class="drag-line"></div>
-  <input
-    (input)="compareImages($event, before1, dragLine1)"
-    class="slider"
-    type="range"
-    min="0"
-    max="100"
-    value="50"
-  />
+<div class="compare-wrapper">
+  <h2>Wir bauen Ihre Zukunft</h2>
+  <div class="compare-container">
+    <img #after1 class="after" src="assets/images/after.png" alt="after" />
+    <img #before1 class="before" src="assets/images/before.png" alt="before" />
+    <p *ngIf="!isComparisonStarted" class="after-text">After</p>
+    <p *ngIf="!isComparisonStarted" class="before-text">Before</p>
+    <div #dragLine1 class="drag-line"></div>
+    <input
+      (input)="compareImages($event, before1, dragLine1)"
+      class="slider"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    />
+  </div>
+  <div #aboutUsTextWrapper class="hidden">
+    <p #aboutUsText class="about-us-text">
+      Erleben Sie eine Designrevolution mit innovativer Wanddrucktechnologie!
+      Von gewöhnlichen Wänden zu einzigartigen Kunstwerken. Entdecken Sie die
+      kreative Transformation Ihres Raumes mit uns!
+    </p>
+  </div>
 </div>
-<div #aboutUsTextWrapper class="hidden">
-  <p #aboutUsText class="about-us-text">
-    Erleben Sie eine Designrevolution mit innovativer Wanddrucktechnologie! Von
-    gewöhnlichen Wänden zu einzigartigen Kunstwerken. Entdecken Sie die kreative
-    Transformation Ihres Raumes mit uns!
-  </p>  
+
+<div class="compare-wrapper-desktop">
+  
 </div>
